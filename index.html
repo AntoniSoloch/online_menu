@@ -94,97 +94,88 @@
 
 
   <script>
-let Gofer = {
-  thumbnail: "./assets/images/image-waffle-thumbnail.jpg",
-  mobile: "./assets/images/image-waffle-mobile.jpg",
-  tablet: "./assets/images/image-waffle-tablet.jpg",
-  desktop: "./assets/images/image-waffle-desktop.jpg",
-  name: "Waffle with Berries",
-  category: "Waffle",
-  price: 6.50
-};
+const Gofer = [
+  "./assets/images/image-waffle-thumbnail.jpg",
+  "./assets/images/image-waffle-mobile.jpg",
+  "./assets/images/image-waffle-tablet.jpg",
+  "./assets/images/image-waffle-desktop.jpg",
+  "Waffle with Berries",
+  "Waffle",
+  6.50
+];
+const Krem = [
+  "./assets/images/image-creme-brulee-thumbnail.jpg",
+  "./assets/images/image-creme-brulee-mobile.jpg",
+  "./assets/images/image-creme-brulee-tablet.jpg",
+  "./assets/images/image-creme-brulee-desktop.jpg",
+  "Vanilla Bean Crème Brûlée",
+  "Crème Brûlée",
+  7.00
+];
+const Macaron = [
+  "./assets/images/image-macaron-thumbnail.jpg",
+  "./assets/images/image-macaron-mobile.jpg",
+  "./assets/images/image-macaron-tablet.jpg",
+  "./assets/images/image-macaron-desktop.jpg",
+  "Macaron Mix of Five",
+  "Macaron",
+  8.00
+];
+  const Brownie = [
+  "./assets/images/image-brownie-thumbnail.jpg",
+  "./assets/images/image-brownie-mobile.jpg",
+  "./assets/images/image-brownie-tablet.jpg",
+  "./assets/images/image-brownie-desktop.jpg",
+  "Salted Carmel Brownie",
+  "Brownie",
+  6.00];
 
-let Krem = {
-  thumbnail: "./assets/images/image-creme-brulee-thumbnail.jpg",
-  mobile: "./assets/images/image-creme-brulee-mobile.jpg",
-  tablet: "./assets/images/image-creme-brulee-tablet.jpg",
-  desktop: "./assets/images/image-creme-brulee-desktop.jpg",
-  name: "Vanilla Bean Crème Brûlée",
-  category: "Crème Brûlée",
-  price: 7.00
-};
+const RedCake = [
+  "./assets/images/image-red-velvet-cake-thumbnail.jpg",
+  "./assets/images/image-red-velvet-cake-mobile.jpg",
+  "./assets/images/image-red-velvet-cake-tablet.jpg",
+  "./assets/images/image-red-velvet-cake-desktop.jpg",
+  "Red Velvet Cake",
+  "Cake",
+  7.50];
 
-let Macaron = {
-  thumbnail: "./assets/images/image-macaron-thumbnail.jpg",
-  mobile: "./assets/images/image-macaron-mobile.jpg",
-  tablet: "./assets/images/image-macaron-tablet.jpg",
-  desktop: "./assets/images/image-macaron-desktop.jpg",
-  name: "Macaron Mix of Five",
-  category: "Macaron",
-  price: 8.00
-};
+const Cotta = [
+  "./assets/images/image-panna-cotta-thumbnail.jpg",
+  "./assets/images/image-panna-cotta-mobile.jpg",
+  "./assets/images/image-panna-cotta-tablet.jpg",
+  "./assets/images/image-panna-cotta-desktop.jpg",
+  "Panna Cotta",
+  "Panna Cotta",
+  6.50];
 
-let Brownie = {
-  thumbnail: "./assets/images/image-brownie-thumbnail.jpg",
-  mobile: "./assets/images/image-brownie-mobile.jpg",
-  tablet: "./assets/images/image-brownie-tablet.jpg",
-  desktop: "./assets/images/image-brownie-desktop.jpg",
-  name: "Salted Carmel Brownie",
-  category: "Brownie",
-  price: 6.00
-};
+const Tiramisu = [
+  "./assets/images/image-tiramisu-thumbnail.jpg",
+  "./assets/images/image-tiramisu-mobile.jpg",
+  "./assets/images/image-tiramisu-tablet.jpg",
+  "./assets/images/image-tiramisu-desktop.jpg",
+  "Classic Tiramisu",
+  "Tiramisu",
+  7.00];
 
-let RedCake = {
-  thumbnail: "./assets/images/image-red-velvet-cake-thumbnail.jpg",
-  mobile: "./assets/images/image-red-velvet-cake-mobile.jpg",
-  tablet: "./assets/images/image-red-velvet-cake-tablet.jpg",
-  desktop: "./assets/images/image-red-velvet-cake-desktop.jpg",
-  name: "Red Velvet Cake",
-  category: "Cake",
-  price: 7.50
-};
+const Baklava = [
+  "./assets/images/image-baklava-thumbnail.jpg",
+  "./assets/images/image-baklava-mobile.jpg",
+  "./assets/images/image-baklava-tablet.jpg",
+  "./assets/images/image-baklava-desktop.jpg",
+  "Pistacho Baklava",
+  "Baklava",
+  8.00];
 
-let Cotta = {
-  thumbnail: "./assets/images/image-panna-cotta-thumbnail.jpg",
-  mobile: "./assets/images/image-panna-cotta-mobile.jpg",
-  tablet: "./assets/images/image-panna-cotta-tablet.jpg",
-  desktop: "./assets/images/image-panna-cotta-desktop.jpg",
-  name: "Panna Cotta",
-  category: "Panna Cotta",
-  price: 6.50 
-};
+const LemonPie = [
+  "/assets/images/image-meringue-thumbnail.jpg",
+  "./assets/images/image-meringue-mobile.jpg",
+  "./assets/images/image-meringue-tablet.jpg",
+  "./assets/images/image-meringue-desktop.jpg",
+  "Lemon Meringue Pie",
+  "Pie",
+  7.50];
 
-let Tiramisu = {
-  thumbnail: "./assets/images/image-tiramisu-thumbnail.jpg",
-  mobile: "./assets/images/image-tiramisu-mobile.jpg",
-  tablet: "./assets/images/image-tiramisu-tablet.jpg",
-  desktop: "./assets/images/image-tiramisu-desktop.jpg",
-  name: "Classic Tiramisu",
-  category: "Tiramisu",
-  price: 7.00
-};
-
-let Baklava = {
-  thumbnail: "./assets/images/image-baklava-thumbnail.jpg",
-  mobile: "./assets/images/image-baklava-mobile.jpg",
-  tablet: "./assets/images/image-baklava-tablet.jpg",
-  desktop: "./assets/images/image-baklava-desktop.jpg",
-  name: "Pistacho Baklava",
-  category: "Baklava",
-  price: 8.00
-};
-
-let LemonPie = {
-  thumbnail: "./assets/images/image-meringue-thumbnail.jpg",
-  mobile: "./assets/images/image-meringue-mobile.jpg",
-  tablet: "./assets/images/image-meringue-tablet.jpg",
-  desktop: "./assets/images/image-meringue-desktop.jpg",
-  name: "Lemon Meringue Pie",
-  category: "Pie",
-  price: 7.50
-};
-
-    let desery=new Array(8)[
+    const desery=new Array(8)[
       Gofer,
       Krem,
       Macaron,
@@ -194,11 +185,11 @@ let LemonPie = {
       RedCake,
       Brownie,
       Cotta
-    ]
+    ];
 
 
-    for(i=0;i<=8;i++){
-      let deser=desery[i]
+    for(let i=0;i<8;i++){
+      const deser=desery[i]
       console.log(
         deser[4]
       );
