@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Product list with cart</title>
+
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <div class="desserts">
+    <h1>Desserts</h1>
+    
+    <div id="gofer" class="dessert">
+      <div class="img">
+      </div>
+        <button type="button"><img src="assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
+        <h4>Macaron</h4>
+        <h2>Macaron Mix of Five</h2>
+        <h3>8.00</h3>
+      </div>
+    </div>
+
+    <div id="creme" class="dessert">
+      <div class="img"></div>
+      <button type="button"><img src="assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
+      <h4>Creme Brûlée</h4>
+      <h2>Vanilla Bean Crème Brûlée</h2>
+      <h3>9.00</h3>
+    </div>
+
+    <div id="tiramisu" class="dessert">
+        <div class="img"></div>
+        <button type="button"><img src="assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
+        <h4>Tiramisu</h4>
+        <h2>Classic Tiramisu</h2>
+        <h3>5.50</h3>
+      </div>
+    </div>  
+    
+    <div id="baklava" class="dessert">
+      <div class="img"></div>
+      <button type="button"><img src="assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
+      <h4>Baklava</h4>
+      <h2>Pistachio Baklava</h2>
+      <h3>4.00</h3>
+    </div>
+
+    <div id="pie" class="dessert">   
+      <div class="img"></div>
+      <button type="button"><img src="assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
+      <h4>Pie</h4>
+      <h2>Lemon Meringue Pie</h2>
+      <h3>5.00</h3>
+    </div>
+    
+    <div id="cake" class="dessert">
+      <div class="img"></div>
+      <button type="button"><img src="assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
+      <h4>Cake</h4>
+      <h2>Red Velvet Cake</h2>
+      <h3>4.50</h3>
+    </div>
+
+    <div id="brownie" class="dessert">
+      <div class="img"></div>
+      <button type="button"><img src="assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
+      <h4>Brownie</h4>
+      <h2>Salted Caramel Brownie</h2>
+      <h3>4.50</h3>
+    </div>
+      
+    <div id="cotta" class="dessert">
+      <div class="img"></div>
+      <button type="button"><img src="assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
+      <h4>Panna Cotta</h4>
+      <h2>Vanilla Panna Cotta</h2>
+      <h3>6.50</h3>
+    </div>
+  </div>
+    
+    Your Cart ()
+  Your added items will appear here
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+
+
+  <script>
+let Gofer = {
+  thumbnail: "./assets/images/image-waffle-thumbnail.jpg",
+  mobile: "./assets/images/image-waffle-mobile.jpg",
+  tablet: "./assets/images/image-waffle-tablet.jpg",
+  desktop: "./assets/images/image-waffle-desktop.jpg",
+  name: "Waffle with Berries",
+  category: "Waffle",
+  price: 6.50
+};
+
+let Krem = {
+  thumbnail: "./assets/images/image-creme-brulee-thumbnail.jpg",
+  mobile: "./assets/images/image-creme-brulee-mobile.jpg",
+  tablet: "./assets/images/image-creme-brulee-tablet.jpg",
+  desktop: "./assets/images/image-creme-brulee-desktop.jpg",
+  name: "Vanilla Bean Crème Brûlée",
+  category: "Crème Brûlée",
+  price: 7.00
+};
+
+let Macaron = {
+  thumbnail: "./assets/images/image-macaron-thumbnail.jpg",
+  mobile: "./assets/images/image-macaron-mobile.jpg",
+  tablet: "./assets/images/image-macaron-tablet.jpg",
+  desktop: "./assets/images/image-macaron-desktop.jpg",
+  name: "Macaron Mix of Five",
+  category: "Macaron",
+  price: 8.00
+};
+
+let Brownie = {
+  thumbnail: "./assets/images/image-brownie-thumbnail.jpg",
+  mobile: "./assets/images/image-brownie-mobile.jpg",
+  tablet: "./assets/images/image-brownie-tablet.jpg",
+  desktop: "./assets/images/image-brownie-desktop.jpg",
+  name: "Salted Carmel Brownie",
+  category: "Brownie",
+  price: 6.00
+};
+
+let RedCake = {
+  thumbnail: "./assets/images/image-red-velvet-cake-thumbnail.jpg",
+  mobile: "./assets/images/image-red-velvet-cake-mobile.jpg",
+  tablet: "./assets/images/image-red-velvet-cake-tablet.jpg",
+  desktop: "./assets/images/image-red-velvet-cake-desktop.jpg",
+  name: "Red Velvet Cake",
+  category: "Cake",
+  price: 7.50
+};
+
+let Cotta = {
+  thumbnail: "./assets/images/image-panna-cotta-thumbnail.jpg",
+  mobile: "./assets/images/image-panna-cotta-mobile.jpg",
+  tablet: "./assets/images/image-panna-cotta-tablet.jpg",
+  desktop: "./assets/images/image-panna-cotta-desktop.jpg",
+  name: "Panna Cotta",
+  category: "Panna Cotta",
+  price: 6.50 
+};
+
+let Tiramisu = {
+  thumbnail: "./assets/images/image-tiramisu-thumbnail.jpg",
+  mobile: "./assets/images/image-tiramisu-mobile.jpg",
+  tablet: "./assets/images/image-tiramisu-tablet.jpg",
+  desktop: "./assets/images/image-tiramisu-desktop.jpg",
+  name: "Classic Tiramisu",
+  category: "Tiramisu",
+  price: 7.00
+};
+
+let Baklava = {
+  thumbnail: "./assets/images/image-baklava-thumbnail.jpg",
+  mobile: "./assets/images/image-baklava-mobile.jpg",
+  tablet: "./assets/images/image-baklava-tablet.jpg",
+  desktop: "./assets/images/image-baklava-desktop.jpg",
+  name: "Pistacho Baklava",
+  category: "Baklava",
+  price: 8.00
+};
+
+let LemonPie = {
+  thumbnail: "./assets/images/image-meringue-thumbnail.jpg",
+  mobile: "./assets/images/image-meringue-mobile.jpg",
+  tablet: "./assets/images/image-meringue-tablet.jpg",
+  desktop: "./assets/images/image-meringue-desktop.jpg",
+  name: "Lemon Meringue Pie",
+  category: "Pie",
+  price: 7.50
+};
+
+    let desery=new Array(8)[
+      Gofer,
+      Krem,
+      Macaron,
+      Tiramisu,
+      Baklava,
+      LemonPie,
+      RedCake,
+      Brownie,
+      Cotta
+    ]
+
+
+    for(i=0;i<=8;i++){
+      let deser=desery[i]
+      console.log(
+        deser[4]
+      );
+    }
+
+  </script>
+
+</body>
+</html>
