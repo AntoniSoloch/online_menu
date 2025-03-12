@@ -13,76 +13,10 @@
   </style>
 </head>
 <body>
-  <div class="desserts">
+  <main>
     <h1>Desserts</h1>
-    
-    <div id="gofer" class="dessert">
-      <div class="img">
-      </div>
-        <button type="button"><img src="assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
-        <h4>Macaron</h4>
-        <h2>Macaron Mix of Five</h2>
-        <h3>8.00</h3>
-      </div>
-    </div>
-
-    <div id="creme" class="dessert">
-      <div class="img"></div>
-      <button type="button"><img src="assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
-      <h4>Creme Brûlée</h4>
-      <h2>Vanilla Bean Crème Brûlée</h2>
-      <h3>9.00</h3>
-    </div>
-
-    <div id="tiramisu" class="dessert">
-        <div class="img"></div>
-        <button type="button"><img src="assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
-        <h4>Tiramisu</h4>
-        <h2>Classic Tiramisu</h2>
-        <h3>5.50</h3>
-      </div>
-    </div>  
-    
-    <div id="baklava" class="dessert">
-      <div class="img"></div>
-      <button type="button"><img src="assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
-      <h4>Baklava</h4>
-      <h2>Pistachio Baklava</h2>
-      <h3>4.00</h3>
-    </div>
-
-    <div id="pie" class="dessert">   
-      <div class="img"></div>
-      <button type="button"><img src="assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
-      <h4>Pie</h4>
-      <h2>Lemon Meringue Pie</h2>
-      <h3>5.00</h3>
-    </div>
-    
-    <div id="cake" class="dessert">
-      <div class="img"></div>
-      <button type="button"><img src="assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
-      <h4>Cake</h4>
-      <h2>Red Velvet Cake</h2>
-      <h3>4.50</h3>
-    </div>
-
-    <div id="brownie" class="dessert">
-      <div class="img"></div>
-      <button type="button"><img src="assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
-      <h4>Brownie</h4>
-      <h2>Salted Caramel Brownie</h2>
-      <h3>4.50</h3>
-    </div>
-      
-    <div id="cotta" class="dessert">
-      <div class="img"></div>
-      <button type="button"><img src="assets/images/icon-add-to-cart.svg" alt="">Add to Cart</button>
-      <h4>Panna Cotta</h4>
-      <h2>Vanilla Panna Cotta</h2>
-      <h3>6.50</h3>
-    </div>
-  </div>
+    <button><img src="./assets/images/icon-add-to-cart.svg" alt=""></button>
+  </main>
     
     Your Cart ()
   Your added items will appear here
@@ -94,7 +28,8 @@
 
 
   <script>
-const Gofer = [
+    //wielka tablica
+    const Gofer = [
   "./assets/images/image-waffle-thumbnail.jpg",
   "./assets/images/image-waffle-mobile.jpg",
   "./assets/images/image-waffle-tablet.jpg",
@@ -121,23 +56,25 @@ const Macaron = [
   "Macaron",
   8.00
 ];
-  const Brownie = [
+const Brownie = [
   "./assets/images/image-brownie-thumbnail.jpg",
   "./assets/images/image-brownie-mobile.jpg",
   "./assets/images/image-brownie-tablet.jpg",
   "./assets/images/image-brownie-desktop.jpg",
-  "Salted Carmel Brownie",
+  "Salted Caramel Brownie",
   "Brownie",
-  6.00];
+  6.00
+];
 
 const RedCake = [
-  "./assets/images/image-red-velvet-cake-thumbnail.jpg",
-  "./assets/images/image-red-velvet-cake-mobile.jpg",
-  "./assets/images/image-red-velvet-cake-tablet.jpg",
-  "./assets/images/image-red-velvet-cake-desktop.jpg",
+  "./assets/images/image-cake-thumbnail.jpg",
+  "./assets/images/image-cake-mobile.jpg",
+  "./assets/images/image-cake-tablet.jpg",
+  "./assets/images/image-cake-desktop.jpg",
   "Red Velvet Cake",
   "Cake",
-  7.50];
+  7.50
+];
 
 const Cotta = [
   "./assets/images/image-panna-cotta-thumbnail.jpg",
@@ -146,7 +83,8 @@ const Cotta = [
   "./assets/images/image-panna-cotta-desktop.jpg",
   "Panna Cotta",
   "Panna Cotta",
-  6.50];
+  6.50
+];
 
 const Tiramisu = [
   "./assets/images/image-tiramisu-thumbnail.jpg",
@@ -155,46 +93,80 @@ const Tiramisu = [
   "./assets/images/image-tiramisu-desktop.jpg",
   "Classic Tiramisu",
   "Tiramisu",
-  7.00];
+  7.00
+];
 
 const Baklava = [
   "./assets/images/image-baklava-thumbnail.jpg",
   "./assets/images/image-baklava-mobile.jpg",
   "./assets/images/image-baklava-tablet.jpg",
   "./assets/images/image-baklava-desktop.jpg",
-  "Pistacho Baklava",
+  "Pistachio Baklava",
   "Baklava",
-  8.00];
+  8.00
+];
 
 const LemonPie = [
-  "/assets/images/image-meringue-thumbnail.jpg",
+  "./assets/images/image-meringue-thumbnail.jpg",
   "./assets/images/image-meringue-mobile.jpg",
   "./assets/images/image-meringue-tablet.jpg",
   "./assets/images/image-meringue-desktop.jpg",
   "Lemon Meringue Pie",
   "Pie",
-  7.50];
+  7.50
+];
 
-    const desery=new Array(8)[
-      Gofer,
-      Krem,
-      Macaron,
-      Tiramisu,
-      Baklava,
-      LemonPie,
-      RedCake,
-      Brownie,
-      Cotta
-    ];
+const desery = [
+  Gofer,
+  Krem,
+  Macaron,
+  Brownie,
+  RedCake,
+  Cotta,
+  Tiramisu,
+  Baklava,
+  LemonPie
+];
 
+for (let i = 0; i < desery.length; i++) {
+  const zdj = desery[i][3];
+  const nazwa = desery[i][4];
+  const kategoria = desery[i][5];
+  const cena = desery[i][6];
 
-    for(let i=0;i<8;i++){
-      const deser=desery[i]
-      console.log(
-        deser[4]
-      );
-    }
+  // tworzenie elementu menu
+  const elementMenu = document.createElement("div");
+  elementMenu.className = "dessert";
 
+  const img = document.createElement("div");
+  img.style.backgroundImage="url("+zdj+")";
+  img.className = "img";
+
+  const button = document.createElement("button");
+  button.className = "AddButton";
+  button.setAttribute("onclick", "addToCart()"); 
+  const CartIcon=document.createElement("img");
+  CartIcon.setAttribute("src","./assets/images/icon-add-to-cart.svg");
+  button.appendChild(CartIcon);
+  button.innerHTML = "Add to cart";
+
+  const category = document.createElement("h4");
+  category.innerHTML = kategoria;
+
+  const name = document.createElement("h2");
+  name.innerHTML = nazwa;
+
+  const price = document.createElement("h3");
+  price.innerHTML = "$" + cena;
+
+  elementMenu.appendChild(img);
+  elementMenu.appendChild(button);
+  elementMenu.appendChild(category);
+  elementMenu.appendChild(name);
+  elementMenu.appendChild(price);
+
+  document.body.appendChild(elementMenu);
+}
   </script>
 
 </body>
