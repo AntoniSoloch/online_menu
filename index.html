@@ -15,7 +15,7 @@
 <body>
   <main>
     <h1>Desserts</h1>
-    <button><img src="./assets/images/icon-add-to-cart.svg" alt=""></button>
+    <button><img src="./assets/images/icon-add-to-cart.svg"></button>
   </main>
     
     Your Cart ()
@@ -36,7 +36,8 @@
   "./assets/images/image-waffle-desktop.jpg",
   "Waffle with Berries",
   "Waffle",
-  6.50
+  6.50,
+  0
 ];
 const Krem = [
   "./assets/images/image-creme-brulee-thumbnail.jpg",
@@ -45,7 +46,8 @@ const Krem = [
   "./assets/images/image-creme-brulee-desktop.jpg",
   "Vanilla Bean Crème Brûlée",
   "Crème Brûlée",
-  7.00
+  7.00,
+  0
 ];
 const Macaron = [
   "./assets/images/image-macaron-thumbnail.jpg",
@@ -54,7 +56,8 @@ const Macaron = [
   "./assets/images/image-macaron-desktop.jpg",
   "Macaron Mix of Five",
   "Macaron",
-  8.00
+  8.00,
+  0
 ];
 const Brownie = [
   "./assets/images/image-brownie-thumbnail.jpg",
@@ -63,7 +66,8 @@ const Brownie = [
   "./assets/images/image-brownie-desktop.jpg",
   "Salted Caramel Brownie",
   "Brownie",
-  6.00
+  6.00,
+  0
 ];
 
 const RedCake = [
@@ -73,7 +77,8 @@ const RedCake = [
   "./assets/images/image-cake-desktop.jpg",
   "Red Velvet Cake",
   "Cake",
-  7.50
+  7.50,
+  0
 ];
 
 const Cotta = [
@@ -83,7 +88,8 @@ const Cotta = [
   "./assets/images/image-panna-cotta-desktop.jpg",
   "Panna Cotta",
   "Panna Cotta",
-  6.50
+  6.50,
+  0
 ];
 
 const Tiramisu = [
@@ -93,7 +99,8 @@ const Tiramisu = [
   "./assets/images/image-tiramisu-desktop.jpg",
   "Classic Tiramisu",
   "Tiramisu",
-  7.00
+  7.00,
+  0
 ];
 
 const Baklava = [
@@ -103,7 +110,8 @@ const Baklava = [
   "./assets/images/image-baklava-desktop.jpg",
   "Pistachio Baklava",
   "Baklava",
-  8.00
+  8.00,
+  0
 ];
 
 const LemonPie = [
@@ -113,7 +121,8 @@ const LemonPie = [
   "./assets/images/image-meringue-desktop.jpg",
   "Lemon Meringue Pie",
   "Pie",
-  7.50
+  7.50,
+  0
 ];
 
 const desery = [
@@ -128,46 +137,61 @@ const desery = [
   LemonPie
 ];
 
+function tworzenieElementow(){
 for (let i = 0; i < desery.length; i++) {
   const zdj = desery[i][3];
   const nazwa = desery[i][4];
   const kategoria = desery[i][5];
   const cena = desery[i][6];
-
-  // tworzenie elementu menu
-  const elementMenu = document.createElement("div");
-  elementMenu.className = "dessert";
+  const ilosc = desery[i][7];
+    const elementMenu = document.createElement("div");
+    elementMenu.className = "dessert";
 
   const img = document.createElement("div");
   img.style.backgroundImage="url("+zdj+")";
   img.className = "img";
-
+  
   const button = document.createElement("button");
   button.className = "AddButton";
-  button.setAttribute("onclick", "addToCart()"); 
+  button.setAttribute("onclick", "DodajDoKoszyka(ilosc,nazwa)"); 
   const CartIcon=document.createElement("img");
-  CartIcon.setAttribute("src","./assets/images/icon-add-to-cart.svg");
   button.appendChild(CartIcon);
+  CartIcon.src="assets/images/icon-add-to-cart.svg";
   button.innerHTML = "Add to cart";
-
+  
   const category = document.createElement("h4");
   category.innerHTML = kategoria;
-
+  
   const name = document.createElement("h2");
   name.innerHTML = nazwa;
-
+  
   const price = document.createElement("h3");
   price.innerHTML = "$" + cena;
-
+  
   elementMenu.appendChild(img);
   elementMenu.appendChild(button);
   elementMenu.appendChild(category);
   elementMenu.appendChild(name);
   elementMenu.appendChild(price);
-
+  
   document.body.appendChild(elementMenu);
+  let borderOn = false;
+  
 }
-  </script>
+}
+let cart = []; 
+
+function DodajDoKoszyka(ilosc, nazwa) {
+    const itemIndex = cart.findIndex(item => item.name === nazwa);
+    if (itemIndex > -1) {
+        cart[itemIndex].quantity ++;
+    } else {
+        cart.push({ nazwa, quantity: 1 });
+    }
+    console.log(cart); 
+}
+tworzenieElementow();
+</script>
 
 </body>
 </html>
