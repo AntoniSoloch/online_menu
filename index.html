@@ -18,17 +18,16 @@
     <button><img src="./assets/images/icon-add-to-cart.svg"></button>
   </main>
     
-    Your Cart ()
+<!--    Your Cart ()
   Your added items will appear here
 
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div>
-
+-->
 
   <script>
-    //wielka tablica
     const Gofer = [
   "./assets/images/image-waffle-thumbnail.jpg",
   "./assets/images/image-waffle-mobile.jpg",
@@ -151,14 +150,32 @@ for (let i = 0; i < desery.length; i++) {
   img.style.backgroundImage="url("+zdj+")";
   img.className = "img";
   
-  const button = document.createElement("button");
+  const lonleyDiv = document.createElement("div");
   button.className = "AddButton";
-  button.setAttribute("onclick", "DodajDoKoszyka(ilosc,nazwa)"); 
+  button.setAttribute("onclick", "DodajDoKoszyka()"); 
   const CartIcon=document.createElement("img");
-  button.appendChild(CartIcon);
   CartIcon.src="assets/images/icon-add-to-cart.svg";
-  button.innerHTML = "Add to cart";
+  CartIcon.className="CartIcon";
+  lonleyDiv.appendChild(CartIcon);
+  const text = document.createElement("p");
+  text.textContent="Dodaj do Koszyka";
+  lonleyDiv.appendChild(text)
+
+//przyciski
+  const MinusIcon=document.createElement("img");
+  MinusIcon.src="assets/images/icon-decrement-quantity.svg";
+  MinusIcon.setAttribute("onclick","zmniejszIlosc()");
+  lonleyDiv.appendChild(MinusIcon);
+
+  const quantityDisplay=document.createElement("p");
+  quantityDisplay.textContent="0";
+  quantityDisplay.className="quantityDisplay";
   
+  const PlusIcon=document.createElement("img");
+  PlusIcon.src="assets/images/icon-increment-quantity.svg";
+  PlusIcon.setAttribute("onclick","zwiekszIlosc()");
+  lonleyDiv.appendChild(PlusIcon);
+
   const category = document.createElement("h4");
   category.innerHTML = kategoria;
   
@@ -169,27 +186,27 @@ for (let i = 0; i < desery.length; i++) {
   price.innerHTML = "$" + cena;
   
   elementMenu.appendChild(img);
-  elementMenu.appendChild(button);
+  img.appendChild(button);
   elementMenu.appendChild(category);
   elementMenu.appendChild(name);
   elementMenu.appendChild(price);
   
   document.body.appendChild(elementMenu);
   let borderOn = false;
-  
-}
-}
-let cart = []; 
-
-function DodajDoKoszyka(ilosc, nazwa) {
-    const itemIndex = cart.findIndex(item => item.name === nazwa);
-    if (itemIndex > -1) {
-        cart[itemIndex].quantity ++;
-    } else {
-        cart.push({ nazwa, quantity: 1 });
+  function zmniejszIlosc() {
+    if (!ilosc > 1) {
+      ilosc--;
+      quantityDisplay.textContent=ilosc;
     }
-    console.log(cart); 
+  }
+  function zwiekszIlosc(i,ilosc){
+    ilosc++;
+    quantityDisplay.textContent=ilosc;
+  }
+  }
 }
+
+
 tworzenieElementow();
 </script>
 
