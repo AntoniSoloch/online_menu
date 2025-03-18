@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
@@ -13,17 +13,23 @@
   </style>
 </head>
 <body>
-  <main>
     <h1>Desserts</h1>
-    <button><img src="./assets/images/icon-add-to-cart.svg"></button>
-  </main>
+
+    <div class="menu" id="menu">
+
+    </div>
+    <div class="CartList" >
+      <ul id="cartList">
+
+      </ul>
+    </div>
     
 <!--    Your Cart ()
   Your added items will appear here
 
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="#">Antoni Soloch</a>.
   </div>
 -->
 
@@ -137,75 +143,88 @@ const desery = [
 ];
 
 function tworzenieElementow(){
-for (let i = 0; i < desery.length; i++) {
+  const menu=document.createElement("div");
+  doocumment.body.innerHTML+=menu;
+  menu.className("desserts");
+for (let i = 0; i <= desery.length; i++) {
   const zdj = desery[i][3];
   const nazwa = desery[i][4];
   const kategoria = desery[i][5];
   const cena = desery[i][6];
   const ilosc = desery[i][7];
-    const elementMenu = document.createElement("div");
-    elementMenu.className = "dessert";
 
+  //tworzenie deseru
+  const elementMenu = document.createElement("div");
+  elementMenu.className = "dessert";
+
+  //zdjęcie
   const img = document.createElement("div");
   img.style.backgroundImage="url("+zdj+")";
   img.className = "img";
   
+  //sekcja dodawanie do koszyka
   const lonleyDiv = document.createElement("div");
-  button.className = "AddButton";
-  button.setAttribute("onclick", "DodajDoKoszyka()"); 
+  lonleyDiv.classname="AddingSection";
+
+  //ikonka koszyka
   const CartIcon=document.createElement("img");
   CartIcon.src="assets/images/icon-add-to-cart.svg";
   CartIcon.className="CartIcon";
-  lonleyDiv.appendChild(CartIcon);
-  const text = document.createElement("p");
-  text.textContent="Dodaj do Koszyka";
-  lonleyDiv.appendChild(text)
 
-//przyciski
+  //tekst w sekcji dodawanie do koszyka
+  const text = document.createElement("p");
+  text.innerText="Dodaj do Koszyka";
+
+  //przycisk "-" 
   const MinusIcon=document.createElement("img");
   MinusIcon.src="assets/images/icon-decrement-quantity.svg";
+  MinusIcon.className="minusSign";
+  MinusIcon.id=i;
   MinusIcon.setAttribute("onclick","zmniejszIlosc()");
-  lonleyDiv.appendChild(MinusIcon);
-
-  const quantityDisplay=document.createElement("p");
-  quantityDisplay.textContent="0";
-  quantityDisplay.className="quantityDisplay";
   
+  //wyświetlanie ilości
+  const quantityDisplay=document.createElement("p");
+  quantityDisplay.className="quantityDisplay";
+  quantityDisplay.textContent="0";
+
+  //przycisk "+"
   const PlusIcon=document.createElement("img");
   PlusIcon.src="assets/images/icon-increment-quantity.svg";
+  PlusIcon.className="plusSign";
+  MinusIcon.id=i;
   PlusIcon.setAttribute("onclick","zwiekszIlosc()");
+
+  //opis deseru
+  //kategoria
+  const category = document.createElement("h4");
+  category.textContent = kategoria;
+  //nazwa
+  const name = document.createElement("h2");
+  name.textContent = nazwa;
+  //cena
+  const price = document.createElement("h3");
+  price.textContent = "$" + cena;
+  
+  lonleyDiv.appendChild(CartIcon);
+  lonleyDiv.appendChild(MinusIcon);
+  lonleyDiv.appendChild(text);
   lonleyDiv.appendChild(PlusIcon);
 
-  const category = document.createElement("h4");
-  category.innerHTML = kategoria;
-  
-  const name = document.createElement("h2");
-  name.innerHTML = nazwa;
-  
-  const price = document.createElement("h3");
-  price.innerHTML = "$" + cena;
-  
+  img.appendChild(lonleyDiv);
+
   elementMenu.appendChild(img);
-  img.appendChild(button);
   elementMenu.appendChild(category);
   elementMenu.appendChild(name);
   elementMenu.appendChild(price);
+
+  document.body.getElementById("menu").appendChild.elementMenu;
   
-  document.body.appendChild(elementMenu);
-  let borderOn = false;
-  function zmniejszIlosc() {
-    if (!ilosc > 1) {
-      ilosc--;
-      quantityDisplay.textContent=ilosc;
-    }
-  }
-  function zwiekszIlosc(i,ilosc){
-    ilosc++;
-    quantityDisplay.textContent=ilosc;
-  }
+  lonleyDiv.addEventListener(mouseover,zmianaElementu());
   }
 }
-
+function zmianaElementu(){
+  lonleyDiv.classList.add()
+}
 
 tworzenieElementow();
 </script>
