@@ -13,13 +13,14 @@
   </style>
 </head>
 <body>
-  <main>
-    <h1>Desserts</h1>
-    <button><img src="./assets/images/icon-add-to-cart.svg"></button>
-  </main>
-    
-    Your Cart ()
-  Your added items will appear here
+  <h1>Desserts</h1>
+
+  <div class="Cart" id="Cart">
+    <h2 id="listTxt">Your Items will appear Here:</h2>
+    <ul id="list">
+
+    </ul>
+  </div>
 
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
@@ -137,60 +138,104 @@ const desery = [
   LemonPie
 ];
 
-function tworzenieElementow(){
-for (let i = 0; i < desery.length; i++) {
-  const zdj = desery[i][3];
-  const nazwa = desery[i][4];
-  const kategoria = desery[i][5];
-  const cena = desery[i][6];
-  const ilosc = desery[i][7];
+function tworzenieMenu(){
+  const menu=document.createElement("div");
+  menu.className="menu";
+  for (let i = 0; i < desery.length; i++) {
+    const zdj = desery[i][3];
+    const nazwa = desery[i][4];
+    const kategoria = desery[i][5];
+    const cena = desery[i][6];
+
     const elementMenu = document.createElement("div");
     elementMenu.className = "dessert";
 
-  const img = document.createElement("div");
-  img.style.backgroundImage="url("+zdj+")";
-  img.className = "img";
-  
-  const button = document.createElement("button");
-  button.className = "AddButton";
-  button.setAttribute("onclick", "DodajDoKoszyka(ilosc,nazwa)"); 
-  const CartIcon=document.createElement("img");
-  button.appendChild(CartIcon);
-  CartIcon.src="assets/images/icon-add-to-cart.svg";
-  button.innerHTML = "Add to cart";
-  
-  const category = document.createElement("h4");
-  category.innerHTML = kategoria;
-  
-  const name = document.createElement("h2");
-  name.innerHTML = nazwa;
-  
-  const price = document.createElement("h3");
-  price.innerHTML = "$" + cena;
-  
-  elementMenu.appendChild(img);
-  elementMenu.appendChild(button);
-  elementMenu.appendChild(category);
-  elementMenu.appendChild(name);
-  elementMenu.appendChild(price);
-  
-  document.body.appendChild(elementMenu);
-  let borderOn = false;
-  
-}
-}
-let cart = []; 
+    const img = document.createElement("div");
+    img.style.backgroundImage="url("+zdj+")";
+    img.className = "img";
+    img.id="img"+i;
+    
+    const button = document.createElement("div");
+    button.className = "AddButton";
+    button.setAttribute("onclick", "ListRefresh()"); 
+    button.id=i;
+    const plus=document.createElement("img");
+    plus.url="images/icon-increment-quantity.svg";
+    plus.className="plus";
+    plus.setAttribute("onclick","dodajDoListy(i)");
 
-function DodajDoKoszyka(ilosc, nazwa) {
-    const itemIndex = cart.findIndex(item => item.name === nazwa);
-    if (itemIndex > -1) {
-        cart[itemIndex].quantity ++;
-    } else {
-        cart.push({ nazwa, quantity: 1 });
-    }
-    console.log(cart); 
+    const CartIcon=document.createElement("img");
+    CartIcon.src="assets/images/icon-add-to-cart.svg";
+    
+    const category = document.createElement("h4");
+    category.innerHTML = kategoria;
+    
+    const name = document.createElement("h2");
+    name.innerText = nazwa;
+    
+    const price = document.createElement("h3");
+    price.innerText = "$" + cena;
+    
+    button.appendChild(CartIcon);
+    button.innerHTML += "<p>Add to cart</p>";
+    elementMenu.appendChild(img);
+    img.appendChild(button);
+    elementMenu.appendChild(category);
+    elementMenu.appendChild(name);
+    elementMenu.appendChild(price);
+    
+    menu.appendChild(elementMenu);
+
+  }
+  document.body.appendChild(menu);
 }
-tworzenieElementow();
+tworzenieMenu();
+function OdsiwerzanieKoszyka(){
+  const Koszyk=document.getElementById("Cart");
+  const Lista=document.getElementById("list");
+  const mptCartImg=document.createElement("img");
+  mptCartImg.url="images/illustration-empty-cart.svg";
+
+  const listTxt=document.getElementById("listTex");
+
+  Koszyk.innerHTML="";
+
+  if(lista.innerHTML=""){
+    listTxt.innerText="Your Cart is empty."
+    Koszyk.appendChild(mptCartImg);
+  }
+  else{
+    listTxt.innerText="Here are Your Items:";
+  }
+  Koszyk.appendChild(listTxt);
+  Koszyk.appendChild(Lista);
+}
+OdsiwerzanieKoszyka();
+
+
+function czyNaLiscie(i){
+  if(desery[i][7]!==0){
+    return true;
+  }
+}
+
+function usunZListy(){
+
+}
+
+function dodajDoListy(i){
+  if(!czyNaLiscie(i)){
+    document.getElementById("Cart").innerHTML="";
+    const elementListy=document.createElement("div");
+    elementListy.className="ListElement";
+    
+  }
+  desery[i][7]++;
+}
+
+function zmienIlosc(){
+
+}
 </script>
 
 </body>
