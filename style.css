@@ -1,35 +1,40 @@
 body{
     width: 98vw;
     background-color: rgb(245, 245, 245);
-}
-main div ,h1 ,h2, h3, h4{
     font-family: "Roboto", sans-serif;
-    width: 30%;
+    display: flex;
+    align-items: start;
+    flex-direction: row-reverse;
+}
+.menu{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 70%;
 }
 h4{
-    font-weight: 300; 
+    font-size: smaller;
+    font-weight: normal;
+    color: rgb(51, 51, 51);
 }
 h3{
     color: rgb(200, 60, 15);
-}
-h2{
     font-size: large;
     width: 60%;
     margin: 0;
 }
-main{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+h2{
+    width: 80%;
 }
 .dessert{
     height: 480px;
     width: 300px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin: 30px;
-    border: 1px solid black;
+    align-items: start;
+    margin-left: 35px;
+    margin-bottom: 10px;
+    position: relative;
 }
 .img{
     width: 100%;
@@ -45,25 +50,50 @@ main{
     border: 2px solid rgb(245, 245, 245);
 }
 .AddButton{
-    height: 30px;
-    width: 130px;
-    border-radius: 15px;
+    background-color: rgb(245, 245, 245);
+    width: 60%;
+    border-radius: 30px;
     display: flex;
-    align-items: center;
+    justify-content: space-around;
     border: 1px solid rgb(197, 197, 197);
     border-collapse: separate;
     color: black;
     font-size: 11px;
     font-weight: bold;
+    margin-bottom: -15px;
 }
-
 .AddButton:hover{
     border: 1px solid rgb(200, 60, 15);
     background-color: rgb(200, 60, 15);
     color: white;
 }
-.AddButton:hover .CartIcon, .AddButton:hover p{
+.AddButton:hover .CartIcon{
     display: none;
+}
+.AddButton p{
+    margin-right: 10px;
+}
+.minus, .plus{
+    align-self: center;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 1px solid white;
+    background-position-y: center;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    display: none;
+    background-size: 75%;
+    cursor: default;
+}
+.AddButton:hover .minus,.AddButton:hover .plus{
+    display: block;
+}
+.minus.disabled {
+    opacity: 0.5;
+}
+.minus:hover, .plus:hover {
+    background-color: #fef5f0;
 }
 .desserts{
     width: 65%;
@@ -71,7 +101,32 @@ main{
     flex-direction: row;
     flex-wrap: wrap;
 }
-.img:hover{
-    border: 2px solid rgb(200, 60, 15);
-    border-collapse: collapse;
+.Cart{
+    width: 30%;
+}
+.elementListy {
+    position: relative;
+    padding: 10px;
+  }
+.elementListy h2{
+    font-size: medium;
+}
+.elementListy p{
+    font-size: small;
+}
+.xBtn {
+  color: #c83c0f;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 20px;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+}
+.elementHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #c83c0f;
 }
