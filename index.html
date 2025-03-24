@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
@@ -10,30 +10,23 @@
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
+    
+    
+    
+    
   </style>
 </head>
 <body>
-    <h1>Desserts</h1>
 
-    <div class="menu" id="menu">
+  <div class="Cart" id="Cart">
+    <h2 id="listTxt">Your Items will appear Here:</h2>
+    <ul id="list">
 
-    </div>
-    <div class="CartList" >
-      <ul id="cartList">
-
-      </ul>
-    </div>
-    
-<!--    Your Cart ()
-  Your added items will appear here
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Antoni Soloch</a>.
+    </ul>
   </div>
--->
 
   <script>
+    //wielka tablica
     const Gofer = [
   "./assets/images/image-waffle-thumbnail.jpg",
   "./assets/images/image-waffle-mobile.jpg",
@@ -41,8 +34,7 @@
   "./assets/images/image-waffle-desktop.jpg",
   "Waffle with Berries",
   "Waffle",
-  6.50,
-  0
+  6.50
 ];
 const Krem = [
   "./assets/images/image-creme-brulee-thumbnail.jpg",
@@ -51,8 +43,7 @@ const Krem = [
   "./assets/images/image-creme-brulee-desktop.jpg",
   "Vanilla Bean Crème Brûlée",
   "Crème Brûlée",
-  7.00,
-  0
+  7.00
 ];
 const Macaron = [
   "./assets/images/image-macaron-thumbnail.jpg",
@@ -61,8 +52,7 @@ const Macaron = [
   "./assets/images/image-macaron-desktop.jpg",
   "Macaron Mix of Five",
   "Macaron",
-  8.00,
-  0
+  8.00
 ];
 const Brownie = [
   "./assets/images/image-brownie-thumbnail.jpg",
@@ -71,8 +61,7 @@ const Brownie = [
   "./assets/images/image-brownie-desktop.jpg",
   "Salted Caramel Brownie",
   "Brownie",
-  6.00,
-  0
+  6.00
 ];
 
 const RedCake = [
@@ -82,8 +71,7 @@ const RedCake = [
   "./assets/images/image-cake-desktop.jpg",
   "Red Velvet Cake",
   "Cake",
-  7.50,
-  0
+  7.50
 ];
 
 const Cotta = [
@@ -93,8 +81,7 @@ const Cotta = [
   "./assets/images/image-panna-cotta-desktop.jpg",
   "Panna Cotta",
   "Panna Cotta",
-  6.50,
-  0
+  6.50
 ];
 
 const Tiramisu = [
@@ -104,8 +91,7 @@ const Tiramisu = [
   "./assets/images/image-tiramisu-desktop.jpg",
   "Classic Tiramisu",
   "Tiramisu",
-  7.00,
-  0
+  7.00
 ];
 
 const Baklava = [
@@ -115,8 +101,7 @@ const Baklava = [
   "./assets/images/image-baklava-desktop.jpg",
   "Pistachio Baklava",
   "Baklava",
-  8.00,
-  0
+  8.00
 ];
 
 const LemonPie = [
@@ -126,8 +111,7 @@ const LemonPie = [
   "./assets/images/image-meringue-desktop.jpg",
   "Lemon Meringue Pie",
   "Pie",
-  7.50,
-  0
+  7.50
 ];
 
 const desery = [
@@ -141,92 +125,205 @@ const desery = [
   Baklava,
   LemonPie
 ];
+const lista = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+function tworzenieMenu() {
+  const menu = document.createElement("div");
+  menu.className = "menu";
+  for (let i = 0; i < desery.length; i++) {
+    const zdj = desery[i][3];
+    const nazwa = desery[i][4];
+    const kategoria = desery[i][5];
+    const cena = desery[i][6];
+    
+    const elementMenu = document.createElement("div");
+    elementMenu.className = "dessert";
+    
+    const img = document.createElement("div");
+    img.style.backgroundImage = "url(" + zdj + ")";
+    img.className = "img";
+    img.id = "img" + i;
+    
+    const button = document.createElement("div");
+    button.className = "AddButton";
+    button.id = "button-" + i;
+    
+    const minus = document.createElement("div");
+    minus.className = "minus debug-outline"; 
+    if (lista[i] === 0) {
+      minus.classList.add("disabled");
+    }
+    minus.id = "minus-" + i;
+    minus.setAttribute("data-id", i);
+    minus.style.backgroundImage = "url(assets/images/icon-decrement-quantity.svg)";
+    
+    minus.setAttribute("onclick", "decrementItem(" + i + "); event.stopPropagation();");
+    
+    const plus = document.createElement("div");
+    plus.className = "plus";
+    plus.id = "plus-" + i;
+    plus.setAttribute("data-id", i);
+    plus.style.backgroundImage = "url(assets/images/icon-increment-quantity.svg)";
+    
+    plus.setAttribute("onclick", "incrementItem(" + i + "); event.stopPropagation();");
+    
+    const CartIcon = document.createElement("img");
+    CartIcon.src = "assets/images/icon-add-to-cart.svg";
+    CartIcon.className = "CartIcon";
+    
+    const category = document.createElement("h4");
+    category.innerHTML = kategoria;
+    
+    const name = document.createElement("h2");
+    name.innerText = nazwa;
+    
+    const price = document.createElement("h3");
+    price.innerText = "$" + cena.toFixed(2);
+    
+    button.appendChild(minus);
+    button.appendChild(CartIcon);
+    button.innerHTML += "<p>Add to cart</p>";
+    button.appendChild(plus);
+    elementMenu.appendChild(img);
+    img.appendChild(button);
+    elementMenu.appendChild(category);
+    elementMenu.appendChild(name);
+    elementMenu.appendChild(price);
+    
+    menu.appendChild(elementMenu);
+  }
+  document.body.appendChild(menu);
+}
 
-function tworzenieElementow(){
-  const menu=document.createElement("div");
-  doocumment.body.innerHTML+=menu;
-  menu.className("desserts");
-for (let i = 0; i <= desery.length; i++) {
-  const zdj = desery[i][3];
-  const nazwa = desery[i][4];
-  const kategoria = desery[i][5];
-  const cena = desery[i][6];
-  const ilosc = desery[i][7];
+function incrementItem(id) {
+  console.log("Increment function called with id:", id);
+  id = parseInt(id);
+  lista[id]++;
+  console.log("New quantity for item", id, ":", lista[id]);
+  updateButtonState(id);
+  aktualizujListe();
+}
 
-  //tworzenie deseru
-  const elementMenu = document.createElement("div");
-  elementMenu.className = "dessert";
-
-  //zdjęcie
-  const img = document.createElement("div");
-  img.style.backgroundImage="url("+zdj+")";
-  img.className = "img";
-  
-  //sekcja dodawanie do koszyka
-  const lonleyDiv = document.createElement("div");
-  lonleyDiv.classname="AddingSection";
-
-  //ikonka koszyka
-  const CartIcon=document.createElement("img");
-  CartIcon.src="assets/images/icon-add-to-cart.svg";
-  CartIcon.className="CartIcon";
-
-  //tekst w sekcji dodawanie do koszyka
-  const text = document.createElement("p");
-  text.innerText="Dodaj do Koszyka";
-
-  //przycisk "-" 
-  const MinusIcon=document.createElement("img");
-  MinusIcon.src="assets/images/icon-decrement-quantity.svg";
-  MinusIcon.className="minusSign";
-  MinusIcon.id=i;
-  MinusIcon.setAttribute("onclick","zmniejszIlosc()");
-  
-  //wyświetlanie ilości
-  const quantityDisplay=document.createElement("p");
-  quantityDisplay.className="quantityDisplay";
-  quantityDisplay.textContent="0";
-
-  //przycisk "+"
-  const PlusIcon=document.createElement("img");
-  PlusIcon.src="assets/images/icon-increment-quantity.svg";
-  PlusIcon.className="plusSign";
-  MinusIcon.id=i;
-  PlusIcon.setAttribute("onclick","zwiekszIlosc()");
-
-  //opis deseru
-  //kategoria
-  const category = document.createElement("h4");
-  category.textContent = kategoria;
-  //nazwa
-  const name = document.createElement("h2");
-  name.textContent = nazwa;
-  //cena
-  const price = document.createElement("h3");
-  price.textContent = "$" + cena;
-  
-  lonleyDiv.appendChild(CartIcon);
-  lonleyDiv.appendChild(MinusIcon);
-  lonleyDiv.appendChild(text);
-  lonleyDiv.appendChild(PlusIcon);
-
-  img.appendChild(lonleyDiv);
-
-  elementMenu.appendChild(img);
-  elementMenu.appendChild(category);
-  elementMenu.appendChild(name);
-  elementMenu.appendChild(price);
-
-  document.body.getElementById("menu").appendChild.elementMenu;
-  
-  lonleyDiv.addEventListener(mouseover,zmianaElementu());
+function decrementItem(id) {
+  console.log("Decrement function called with id:", id);
+  id = parseInt(id);
+  if (lista[id] > 0) {
+    lista[id]--;
+    console.log("New quantity for item", id, ":", lista[id]);
+    updateButtonState(id);
+    aktualizujListe();
+  } else {
+    console.log("Cannot decrement: quantity already 0");
   }
 }
-function zmianaElementu(){
-  lonleyDiv.classList.add()
+
+function removeItem(id) {
+  console.log("Remove function called with id:", id);
+  id = parseInt(id);
+  lista[id] = 0;
+  updateButtonState(id);
+  aktualizujListe();
 }
 
-tworzenieElementow();
+function updateButtonState(id) {
+  const minusButton = document.getElementById("minus-" + id);
+  if (minusButton) {
+    if (lista[id] === 0) {
+      minusButton.classList.add("disabled");
+    } else {
+      minusButton.classList.remove("disabled");
+    }
+  }
+}
+
+function updateAllButtonStates() {
+  for (let i = 0; i < lista.length; i++) {
+    updateButtonState(i);
+  }
+}
+
+function aktualizujListe() {
+  const list = document.getElementById("list");
+  list.innerHTML = "";
+  
+  let isEmpty = true;
+  for (let i = 0; i < lista.length; i++) {
+    if (lista[i] > 0) {
+      isEmpty = false;
+      break;
+    }
+  }
+  
+  const listTxt = document.getElementById("listTxt");
+  if (isEmpty) {
+    listTxt.innerText = "Your Items will appear Here:";
+  } else {
+    listTxt.innerText = "Your Items:";
+  }
+  
+  let total = 0;
+  for (let j = 0; j < desery.length; j++) {
+    if (lista[j] > 0) {
+      const elementListy = document.createElement("div");
+      elementListy.className = "elementListy";
+      elementListy.id = "item" + j;
+      
+      const headerDiv = document.createElement("div");
+      headerDiv.className = "elementHeader";
+      
+      const name = document.createElement("h2");
+      name.innerText = desery[j][4];
+      
+      const xBtn = document.createElement("img");
+      xBtn.className = "xBtn";
+      xBtn.src="assets/images/delete-icon.png";
+      xBtn.setAttribute("data-id", j);
+      xBtn.setAttribute("onclick", "removeItem(" + j + ")");
+      
+      headerDiv.appendChild(name);
+      headerDiv.appendChild(xBtn);
+      elementListy.appendChild(headerDiv);
+      
+      const cena = document.createElement("p");
+      cena.innerText = "$" + desery[j][6].toFixed(2);
+      
+      const ilosc = document.createElement("p");
+      ilosc.innerText = "x" + lista[j];
+      
+      const itemTotal = desery[j][6] * lista[j];
+      total += itemTotal;
+      
+      const wartosc = document.createElement("p");
+      wartosc.innerText = "summary: " + lista[j] + " x $" + desery[j][6].toFixed(2) + " = $" + itemTotal.toFixed(2);
+      
+      elementListy.appendChild(cena);
+      elementListy.appendChild(ilosc);
+      elementListy.appendChild(wartosc);
+      
+      list.appendChild(elementListy);
+    }
+    const endTxt=document.createElement("div");
+    endTxt.className="endTxt";
+
+  }
+  if (!isEmpty) {
+    const totalElement = document.createElement("div");
+    totalElement.className = "cartTotal";
+    totalElement.innerHTML = "<strong>Order Total: $" + total.toFixed(2) + "</strong>";
+    list.appendChild(totalElement);
+  }
+  const carbonNeutralIcon=document.createElement("img");
+  carbonNeutralIcon.src="assets/images/icon-carbon-neutral.png";
+
+  const endText=document.createElement("p");
+  endText.innerText="this is carbon-neutral delivery";
+  endTxt.appendChild(carbonNeutralIcon);
+  endTxt.appendChild(endText);
+  list.appendChild(endTxt);
+
+  updateAllButtonStates();
+}
+tworzenieMenu();
+aktualizujListe();
 </script>
 
 </body>
